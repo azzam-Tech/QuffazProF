@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قفّاز · Quffaz — نصنع ما يستحق أن يُرى</title>
+<meta name="description" content="قفّاز شركة سعودية متخصصة في الإنتاج الإعلامي المرئي والصوتي. نصنع ما يستحق أن يُرى.">
+<meta property="og:title" content="قفّاز · Quffaz">
+<meta property="og:description" content="نصنع ما يستحق أن يُرى — إنتاج مرئي وصوتي سينمائي.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                   HEADER                     -->
+<!-- ═══════════════════════════════════════════ -->
+<header class="site-header" id="siteHeader">
+  <nav class="nav">
+    <a class="logo" href="index.html" aria-label="قفّاز Quffaz">
+      <span class="lat">Quffaz</span>
+      <span class="bar"></span>
+      <span class="ar">قفّ<b>ا</b>ز</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">الرئيسية</a></li>
+      <li><a href="#story">قصّتنا</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li class="nav-has-drop">
+        <a href="#films" class="nav-drop-link">الأفلام</a><button class="nav-caret-btn" aria-label="فتح القائمة"><svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="nav-dropdown">
+          <li><a href="#films-ad-works">الإعلانات التجارية</a></li>
+          <li><a href="#films-doc-works">الأفلام الوثائقية</a></li>
+          <li><a href="#films-event-works">المعارض والمؤتمرات</a></li>
+          <li><a href="#films-occ-works">المناسبات الخاصة</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-drop">
+        <a href="#photos" class="nav-drop-link">الصور</a><button class="nav-caret-btn" aria-label="فتح القائمة"><svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="nav-dropdown">
+          <li><a href="#photos-comm-works">التصوير التجاري والإعلاني</a></li>
+          <li><a href="#photos-event-works">تصوير الفعاليات والمؤتمرات</a></li>
+          <li><a href="#photos-occ-works">تصوير المناسبات الخاصة</a></li>
+          <li><a href="#photos-aerial-works">التصوير الجوي والمعماري</a></li>
+        </ul>
+      </li>
+      <li><a href="#partners">شركاؤنا</a></li>
+      <li><a href="#contact">للتواصل</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube" class="social-yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.7-1.7C19.4 5.3 12 5.3 12 5.3s-7.4 0-8.9.4a2.5 2.5 0 00-1.7 1.7C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.7 1.7c1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4a2.5 2.5 0 001.7-1.7c.4-1.5.4-4.7.4-4.7zM9.8 15V9l5.2 3z"/></svg></a>
+        <a href="https://www.instagram.com/quffazpro" target="_blank" aria-label="Instagram" class="social-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+
+      <!-- مبدّل الألوان -->
+      <div class="palette-wrap">
+        <button class="palette-btn" id="paletteBtn" aria-label="تغيير ألوان الموقع">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <div class="palette-panel" id="palettePanel" aria-hidden="true">
+
+          <!-- اللون الأول -->
+          <div class="pal-row">
+            <span class="pal-label">اللون الأول</span>
+            <div class="pal-swatches">
+              <button class="pal-swatch p1 pal-active" title="أحمر"    data-role="primary" data-accent="#e8472b" data-a2="#ff5c3e" data-a3="#c9391f" data-soft="rgba(232,71,43,.15)"  style="--sc:#e8472b"></button>
+              <button class="pal-swatch p1"             title="ذهبي"   data-role="primary" data-accent="#c4973d" data-a2="#dbb050" data-a3="#a87d2a" data-soft="rgba(196,151,61,.15)" style="--sc:#c4973d"></button>
+              <button class="pal-swatch p1"             title="أزرق"   data-role="primary" data-accent="#2563d4" data-a2="#3d78e8" data-a3="#1a4fb0" data-soft="rgba(37,99,212,.15)"  style="--sc:#2563d4"></button>
+              <button class="pal-swatch p1"             title="بنفسجي" data-role="primary" data-accent="#8b3fe8" data-a2="#a05cf5" data-a3="#7230c4" data-soft="rgba(139,63,232,.15)" style="--sc:#8b3fe8"></button>
+              <button class="pal-swatch p1"             title="زمردي"  data-role="primary" data-accent="#0d9f6e" data-a2="#10be84" data-a3="#0a835b" data-soft="rgba(13,159,110,.15)" style="--sc:#0d9f6e"></button>
+            </div>
+          </div>
+
+          <div class="pal-sep"></div>
+
+          <!-- خلفية الموقع -->
+          <div class="pal-row">
+            <span class="pal-label">خلفية الموقع</span>
+            <div class="pal-swatches">
+              <button class="pal-swatch p3 pal-active" title="فحمي (افتراضي)" data-bg="default" style="--sc:#17171c"></button>
+              <button class="pal-swatch p3"             title="أسود"           data-bg="black"   style="--sc:#111111"></button>
+              <button class="pal-swatch p3"             title="نيلي"           data-bg="navy"    style="--sc:#0f1e31"></button>
+              <button class="pal-swatch p3"             title="بنفسجي"         data-bg="indigo"  style="--sc:#181535"></button>
+              <button class="pal-swatch p3"             title="دافئ"           data-bg="warm"    style="--sc:#221a13"></button>
+            </div>
+          </div>
+
+          <div class="pal-sep"></div>
+
+          <!-- اللون الثاني -->
+          <div class="pal-row">
+            <span class="pal-label">اللون الثاني</span>
+            <div class="pal-swatches">
+              <button class="pal-swatch p2 pal-active" title="بدون"    data-role="secondary" data-sec="none"    style="--sc:transparent; border:1px solid rgba(255,255,255,.2)"><svg viewBox="0 0 10 10" style="width:10px;height:10px;opacity:.4"><line x1="1" y1="9" x2="9" y2="1" stroke="currentColor" stroke-width="1.5"/></svg></button>
+              <button class="pal-swatch p2"             title="ذهبي"   data-role="secondary" data-sec="#c4973d" style="--sc:#c4973d"></button>
+              <button class="pal-swatch p2"             title="أحمر"   data-role="secondary" data-sec="#e8472b" style="--sc:#e8472b"></button>
+              <button class="pal-swatch p2"             title="سماوي"  data-role="secondary" data-sec="#0ea5e9" style="--sc:#0ea5e9"></button>
+              <button class="pal-swatch p2"             title="وردي"   data-role="secondary" data-sec="#e84393" style="--sc:#e84393"></button>
+              <button class="pal-swatch p2"             title="كهرماني" data-role="secondary" data-sec="#f59e0b" style="--sc:#f59e0b"></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="burger" aria-label="القائمة"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                    HERO                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline poster="https://drive.google.com/thumbnail?id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG&sz=w1600">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal-hero">
+      <span class="hero-eyebrow-line"></span>
+      <span>استوديو الإنتاج المرئي</span>
+    </div>
+    <h1 class="reveal-hero" style="--hd:.1s">نصنع ما يستحق<br>أن <span class="hl">يُرى</span></h1>
+    <p class="lead reveal-hero" style="--hd:.2s">في «قفّاز»، نغزلُ خيوط الفكرة، ونحرّكُ الحواس بصوتٍ يأسر، وصورةٍ تبهر.</p>
+    <div class="hero-cta reveal-hero" style="--hd:.3s">
+      <a href="#films" class="btn btn-primary">تصفّح أعمالنا</a>
+    </div>
+  </div>
+  <a href="#story" class="scroll-cue" aria-label="انزل للأسفل">
+    <span>اكتشف</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--               STORY / ABOUT                  -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="story-section" id="story">
+  <div class="story-inner">
+
+    <!-- صورة -->
+    <div class="story-img">
+      <img src="images/1.png" alt="قفّاز">
+    </div>
+
+    <!-- نص -->
+    <div class="story-text wrap-half">
+      <span class="story-label">قصّتنا</span>
+      <h2 class="story-title">نلتقط الأفكار<br>من خارج <em>الصندوق</em></h2>
+      <p class="story-desc">«قفّاز» شركة سعودية متخصصة في الإنتاج الإعلامي المرئي — نمدّ أيدينا لنلتقط الأفكار ونحيكها بمعايير ترقى لتطلعات النخبة.</p>
+      <div class="story-stats">
+        <div class="story-stat">
+          <div class="story-stat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="6" width="15" height="12" rx="2"/><path d="M17 9l5-3v12l-5-3"/></svg>
+          </div>
+          <b><span class="count-up" data-to="50">0</span>+</b>
+          <span>مشروع منجز</span>
+        </div>
+        <div class="story-stat-divider"></div>
+        <div class="story-stat">
+          <div class="story-stat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <b><span class="count-up" data-to="30">0</span>+</b>
+          <span>عميل راضٍ</span>
+        </div>
+        <div class="story-stat-divider"></div>
+        <div class="story-stat">
+          <div class="story-stat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <b><span class="count-up" data-to="5">0</span></b>
+          <span>سنوات خبرة</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--             SERVICES OVERVIEW                -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section svc-overview-section" id="services">
+  <div class="svc-bg">
+    <img src="images/2.png" alt="">
+  </div>
+  <div class="svc-bg-overlay"></div>
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">ما نقدّمه</span>
+      <h2 class="sec-title">خدماتنا</h2>
+    </div>
+  </div>
+  <div class="svc-split">
+    <a class="svc-panel reveal" href="#films">
+      <div class="svc-panel-bg-num">01</div>
+      <div class="svc-panel-content">
+        <div class="svc-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></svg>
+        </div>
+        <div class="svc-panel-label">01</div>
+        <h3 class="svc-panel-title">خدمات<br>الأفلام</h3>
+        <p class="svc-panel-desc">إعلانات تجارية · أفلام وثائقية<br>تغطية فعاليات · مناسبات خاصة</p>
+        <span class="svc-panel-cta">اكتشف الخدمات <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </div>
+    </a>
+    <a class="svc-panel reveal" href="#photos">
+      <div class="svc-panel-bg-num">02</div>
+      <div class="svc-panel-content">
+        <div class="svc-panel-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <div class="svc-panel-label">02</div>
+        <h3 class="svc-panel-title">خدمات<br>الصور</h3>
+        <p class="svc-panel-desc">تصوير إعلاني · تصوير فعاليات<br>تصوير مناسبات · تصوير جوي</p>
+        <span class="svc-panel-cta">اكتشف الخدمات <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--               FILM SERVICES                  -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="films">
+  <div class="svc-group-title reveal">
+    <span class="svc-group-line"></span>
+    <!-- <span class="svc-group-label">01</span> -->
+    <h2 class="svc-group-heading">خدمات <span class="hl">الأفلام</span></h2>
+    <span class="svc-group-line"></span>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">01</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>الإعلانات التجارية</h3></div>
+        <p>لقطات خاطفة وأفكار ذكية تحوّل المشاهد العابر إلى عميل دائم.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="films-ad-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track" id="films-ad-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">02</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>الأفلام الوثائقية</h3></div>
+        <p>نحفظ الذاكرة ونوثّق الإرث بأسلوبٍ سينمائي يلامس المشاعر.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="films-doc-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track" id="films-doc-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">03</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>المعارض والمؤتمرات والفعاليات</h3></div>
+        <p>تغطية شاملة تنقل هيبة الحدث وزخمه المؤسسي باحترافية.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="films-event-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track" id="films-event-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">04</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>المناسبات الخاصة والزيجات</h3></div>
+        <p>لأن العمر ليلة، نتولّى حماية ذكرياتكم الأكثر حميمية وفرحاً.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="films-occ-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track" id="films-occ-works"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--              PHOTO SERVICES                  -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="photos">
+  <div class="svc-group-title reveal">
+    <span class="svc-group-line"></span>
+    <!-- <span class="svc-group-label">02</span> -->
+    <h2 class="svc-group-heading">خدمات <span class="hl">الصور</span></h2>
+    <span class="svc-group-line"></span>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">01</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>التصوير التجاري والإعلاني</h3></div>
+        <p>صور تحكي قصة المنتج وتبهر المتلقّي بعين سينمائية.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-comm-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track photo-track" id="photos-comm-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">02</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>تصوير الفعاليات والمؤتمرات</h3></div>
+        <p>توثيقٌ احترافي لكل لحظة من حيوية الحضور إلى التفاصيل الدقيقة.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-event-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track photo-track" id="photos-event-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">03</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/><path d="M12 12v8"/></svg>تصوير المناسبات الخاصة</h3></div>
+        <p>ذكرياتكم أمانةٌ بين أيدينا، نوثّق فرحكم بحساسية فنية.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-occ-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track photo-track" id="photos-occ-works"></div>
+  </div>
+  <div class="svc-service-block">
+    <div class="svc-svc-header">
+      <div class="svc-header-text">        <div class="svc-title-row"><span class="svc-svc-num">04</span><h3><svg class="svc-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L8 6H4l2 4-4 2 4 2-2 4h4l4 4 4-4h4l-2-4 4-2-4-2 2-4h-4L12 2z"/><circle cx="12" cy="12" r="2"/></svg>التصوير الجوي والمعماري</h3></div>
+        <p>منظورٌ لا يُرى إلا من الأعلى، يرسم المكان كما تخيّله المصمم.</p>
+      </div>
+    </div>
+    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-aerial-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
+    <div class="svc-works-track photo-track" id="photos-aerial-works"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--             SPECIAL PROJECTS                 -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section special" id="special">
+  <div class="bgimg"><img src="https://drive.google.com/thumbnail?id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D&sz=w1600" alt=""></div>
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center">مشاريع استثنائية</span>
+    <h2>مشاريع صُنعت <span class="hl">خصيصاً لك</span></h2>
+    <p>الأفكار العظيمة لا تنمو في القوالب الجاهزة. إذا كان لديك مشروعٌ فريد، مركّب، أو يتطلّب دمجاً خاصاً بين الإبداع البصري والسمعي على المدى الطويل؛ فنحن هنا لنحيك معك الملف الفني من الصفر، ونصيغ الرؤية، ونقدّم لك التصور الإبداعي والمالي الذي يضمن ولادة مشروعك بشكلٍ استثنائي.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">اطلب استشارة</a>
+      <a href="#contact" class="btn btn-ghost">تواصل مباشر</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                  PARTNERS                    -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section bg-2" id="partners">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">شركاء النجاح</span>
+      <h2 class="sec-title">كسبنا ثقة شركاء النجاح</h2>
+    </div>
+    <div class="partner-grid reveal">
+      <div class="partner"><img src="assets/logos/1.svg"            alt="نيوم"                  loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('نيوم')"></div>
+      <div class="partner"><img src="assets/logos/2.svg"             alt="وزارة الثقافة"          loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('وزارة الثقافة')"></div>
+      <div class="partner"><img src="assets/logos/3.svg"            alt="الهيئة الملكية للرياض"  loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('الهيئة الملكية للرياض')"></div>
+      <div class="partner"><img src="assets/logos/4.svg"          alt="أرامكو السعودية"        loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('أرامكو السعودية')"></div>
+      <div class="partner"><img src="assets/logos/5.svg"             alt="هيئة الترفيه"           loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('هيئة الترفيه')"></div>
+      <div class="partner"><img src="assets/logos/6.svg"         alt="الدرعية"                loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('الدرعية')"></div>
+      <div class="partner"><img src="assets/logos/7.svg"           alt="روشن"                  loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('روشن')"></div>
+      <div class="partner"><img src="assets/logos/8.svg"       alt="بنك الرياض"             loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('بنك الرياض')"></div>
+      <div class="partner"><img src="assets/logos/9.svg"            alt="SAMI"                  loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('SAMI')"></div>
+      <div class="partner"><img src="assets/logos/10.svg"        alt="منشآت"                  loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('is-text');this.parentElement.append('منشآت')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                   CONTACT                    -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-side reveal">
+        <span class="eyebrow">احكِ لنا فكرتك</span>
+        <h2>تواصل معنا</h2>
+        <p class="intro">نحن لتحويل أفكارك إلى واقعٍ يُبصَر ويُسمَع. تواصل معنا لنبدأ رحلةً إبداعية معاً.</p>
+        <div class="contact-info">
+          <div class="cinfo">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div>
+            <div><b>البريد الإلكتروني</b><span>hi@quffaz.sa</span></div>
+          </div>
+          <div class="cinfo">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16.5v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 013.2 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L7.1 9.6a16 16 0 006 6l1.1-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></div>
+            <div><b>الهاتف</b><span>+966 5X XXX XXXX</span></div>
+          </div>
+          <div class="cinfo">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><b>الموقع</b><span>الرياض، المملكة العربية السعودية</span></div>
+          </div>
+        </div>
+        <a href="https://wa.me/966500000000" target="_blank" rel="noopener" class="btn wa-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.6-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7 2 .8 2.7.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2z"/></svg>
+          راسلنا على واتساب
+        </a>
+      </div>
+      <form class="form-card reveal" id="contactForm" novalidate>
+        <div class="frow">
+          <div class="field"><label>الاسم الكامل</label><input type="text" name="name" placeholder="اكتب اسمك" required></div>
+          <div class="field"><label>رقم الجوال</label><input type="tel" name="phone" placeholder="+966" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>البريد الإلكتروني</label><input type="email" name="email" placeholder="email@example.com"></div>
+          <div class="field"><label>اسم الجهة / الشركة</label><input type="text" name="org" placeholder="اختياري"></div>
+        </div>
+        <div class="field full" style="margin-bottom:16px">
+          <label>نوع المشروع</label>
+          <select name="type">
+            <option>إنتاج مرئي</option>
+            <option>إنتاج صوتي</option>
+            <option>تغطية فعالية</option>
+            <option>مشروع خاص / استثنائي</option>
+          </select>
+        </div>
+        <div class="field full" style="margin-bottom:18px">
+          <label>تفاصيل المشروع</label>
+          <textarea name="details" placeholder="احكِ لنا فكرتك…"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">إرسال الطلب</button>
+          <span class="form-note" id="formNote"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                   FOOTER                     -->
+<!-- ═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><span class="lat">Quffaz</span><span class="bar"></span><span class="ar">قفّ<b>ا</b>ز</span></a>
+        <p>شركة إنتاج إعلامي سعودية متخصصة في صناعة المحتوى المرئي والإبداعي. نسرد القصص من خلف العدسة.</p>
+        <div class="slogan">قفّاز.. الإبداع مقاسنا</div>
+      </div>
+      <div class="fcol">
+        <h5>روابط سريعة</h5>
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="#story">قصّتنا</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="portfolio.html">معرض الأعمال</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>تواصل معنا</h5>
+        <ul>
+          <li><span>hi@quffaz.sa</span></li>
+          <li><span>الرياض، المملكة العربية السعودية</span></li>
+        </ul>
+        <div class="fsoc">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21H21v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H13.4z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 00-1.7-1.7C19.4 5.3 12 5.3 12 5.3s-7.4 0-8.9.4a2.5 2.5 0 00-1.7 1.7C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 001.7 1.7c1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4a2.5 2.5 0 001.7-1.7c.4-1.5.4-4.7.4-4.7zM9.8 15V9l5.2 3z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.2h3.3l-7.2 8.3 8.5 11.3h-6.7l-5.2-6.9-6 6.9H1.6l7.7-8.9L1.2 2.2h6.9l4.7 6.3zM17 19.8h1.8L7 4.1H5z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Quffaz 2026 · جميع الحقوق محفوظة</span>
+      <span>صُنع بشغفٍ في المملكة العربية السعودية</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                  LIGHTBOX                    -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-inner">
+    <button class="lb-close" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="lb-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
