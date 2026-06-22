@@ -51,6 +51,158 @@
   --line:   rgba(255,255,255,.05); --line-2: rgba(255,255,255,.10);
 }
 
+/* ── Mix theme (مزيج ألوان) ── */
+/* ══════════════════════════════════════════
+   ثيم مزيج الألوان — صاخب وجريء
+   ══════════════════════════════════════════ */
+[data-theme="mix"]{
+  --bg:        #ffffff;
+  --bg-2:      #f7f5f2;
+  --bg-3:      #f0ece6;
+  --card:      #ffffff;
+  --card-2:    #f5f2ee;
+  --line:      rgba(0,0,0,.08);
+  --line-2:    rgba(0,0,0,.15);
+  --text:      #1a1814;
+  --muted:     #6b6355;
+  --muted-2:   #a09880;
+  --accent:    #e8301a;
+  --accent-2:  #ff4422;
+  --accent-3:  #c92010;
+  --accent-sec:#c4973d;
+  --gold-soft: rgba(196,151,61,.18);
+  --mix-red:   #e8301a;
+  --mix-teal:  #008fa8;
+  --mix-gold:  #c4973d;
+  --shadow:    0 20px 60px rgba(0,0,0,.12);
+}
+
+/* ── هيدر المزيج ── */
+[data-theme="mix"] .site-header.scrolled{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+[data-theme="mix"] .scrolled .nav-links a{ color: rgba(26,24,20,.65) }
+[data-theme="mix"] .scrolled .nav-links a:hover,
+[data-theme="mix"] .scrolled .nav-links a.active{ color: #1a1814 }
+[data-theme="mix"] .scrolled .logo .ar,
+[data-theme="mix"] .scrolled .logo .lat{ color: #1a1814 }
+[data-theme="mix"] .logo .ar,
+[data-theme="mix"] .logo .lat{
+  background: linear-gradient(90deg, var(--mix-red), var(--mix-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── هيرو المزيج — overlay صاخب ── */
+[data-theme="mix"] .hero-overlay{
+  background:
+    radial-gradient(ellipse 70% 60% at 10% 50%, rgba(232,48,26,.5) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 90% 30%, rgba(0,143,168,.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 50% 100%, rgba(196,151,61,.35) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.65) 100%);
+}
+[data-theme="mix"] .hero-inner,
+[data-theme="mix"] .hero h1,
+[data-theme="mix"] .hero p.lead,
+[data-theme="mix"] .hero-eyebrow span{ color:#f5f2ea }
+[data-theme="mix"] .hero-eyebrow-line{ background: rgba(240,238,233,.5) }
+[data-theme="mix"] .scroll-cue{ color: rgba(240,238,233,.65) }
+
+/* عنوان الهيرو gradient */
+[data-theme="mix"] .hero h1 .hl{
+  background: linear-gradient(90deg, var(--mix-red) 0%, var(--mix-gold) 50%, var(--mix-teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── بطاقات خدماتنا ── */
+[data-theme="mix"] .svc-panel{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+}
+[data-theme="mix"] .svc-panel:nth-child(1){
+  border-top: 3px solid var(--mix-red);
+  box-shadow: 0 8px 40px rgba(232,48,26,.1);
+}
+[data-theme="mix"] .svc-panel:nth-child(2){
+  border-top: 3px solid var(--mix-teal);
+  box-shadow: 0 8px 40px rgba(0,143,168,.1);
+}
+[data-theme="mix"] .svc-panel:nth-child(3){
+  border-top: 3px solid var(--mix-gold);
+  box-shadow: 0 8px 40px rgba(196,151,61,.1);
+}
+[data-theme="mix"] .svc-panel-title{ color: #1a1814 }
+[data-theme="mix"] .svc-panel-desc{ color: rgba(26,24,20,.6) }
+
+/* ── أقسام الأفلام — أحمر ── */
+[data-theme="mix"] #films .svc-svc-num{ -webkit-text-stroke-color: rgba(232,48,26,.25) }
+[data-theme="mix"] #films .svc-service-block:hover .svc-svc-header::after,
+[data-theme="mix"] #films .svc-service-block.block-in .svc-svc-header::after{ background: var(--mix-red) }
+[data-theme="mix"] #films .svc-service-block:hover .svc-title-row h3::after,
+[data-theme="mix"] #films .svc-service-block.block-in .svc-title-row h3::after{ background: var(--mix-red) }
+[data-theme="mix"] #films .svc-service-block{
+  border-inline-start: 2px solid rgba(232,48,26,.25);
+  background: linear-gradient(135deg, rgba(232,48,26,.03) 0%, transparent 60%);
+}
+
+/* ── أقسام الصور — فيروزي ── */
+[data-theme="mix"] #photos .svc-svc-num{ -webkit-text-stroke-color: rgba(0,143,168,.25) }
+[data-theme="mix"] #photos .svc-service-block:hover .svc-svc-header::after,
+[data-theme="mix"] #photos .svc-service-block.block-in .svc-svc-header::after{ background: var(--mix-teal) }
+[data-theme="mix"] #photos .svc-service-block:hover .svc-title-row h3::after,
+[data-theme="mix"] #photos .svc-service-block.block-in .svc-title-row h3::after{ background: var(--mix-teal) }
+[data-theme="mix"] #photos .svc-service-block{
+  border-inline-start: 2px solid rgba(0,143,168,.25);
+  background: linear-gradient(135deg, rgba(0,143,168,.03) 0%, transparent 60%);
+}
+
+/* ── service blocks نص ── */
+[data-theme="mix"] .svc-service-block{ background: #fff }
+[data-theme="mix"] .svc-svc-header p{ color: rgba(26,24,20,.65) }
+[data-theme="mix"] .svc-title-row h3{ color: #1a1814 }
+
+/* ── قصتنا ── */
+[data-theme="mix"] .story-section{ background: #f7f5f2 }
+[data-theme="mix"] .story-stat:nth-child(1) .story-stat-ico{ background: rgba(232,48,26,.1); border-color: rgba(232,48,26,.3) }
+[data-theme="mix"] .story-stat:nth-child(1) .story-stat-ico svg{ color: var(--mix-red) }
+[data-theme="mix"] .story-stat:nth-child(3) .story-stat-ico{ background: rgba(0,143,168,.1); border-color: rgba(0,143,168,.3) }
+[data-theme="mix"] .story-stat:nth-child(3) .story-stat-ico svg{ color: var(--mix-teal) }
+[data-theme="mix"] .story-stat:nth-child(5) .story-stat-ico{ background: rgba(196,151,61,.1); border-color: rgba(196,151,61,.3) }
+[data-theme="mix"] .story-stat:nth-child(5) .story-stat-ico svg{ color: var(--mix-gold) }
+[data-theme="mix"] .story-stat b{ color: #1a1814 }
+
+/* ── Section labels — gradient ── */
+[data-theme="mix"] .story-label,
+[data-theme="mix"] .svc-eyebrow{
+  background: linear-gradient(90deg, var(--mix-red), var(--mix-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── خلفية خفية خلف الأقسام ── */
+[data-theme="mix"] #films{
+  background: linear-gradient(180deg, #fff 0%, #fdf5f4 50%, #fff 100%);
+}
+[data-theme="mix"] #photos{
+  background: linear-gradient(180deg, #fff 0%, #f3fafb 50%, #fff 100%);
+}
+
+/* ── form & contact ── */
+[data-theme="mix"] .form-card,
+[data-theme="mix"] .contact-side{ background: #fff }
+
+/* ── partners ── */
+[data-theme="mix"] .partner img{ filter: none; opacity: .75 }
+[data-theme="mix"] .partner:hover img{ opacity: 1 }
+
+/* ── زر theme-toggle ── */
+[data-theme="mix"] .theme-toggle{ color: var(--mix-red); border-color: rgba(232,48,26,.35) }
+
 /* ── Light theme ── */
 [data-theme="light"]{
   --bg:        #faf9f7;
@@ -375,64 +527,6 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
 .social-ig,  .scrolled .social-ig { color: #E1306C }
 
 /* ── مبدّل الألوان ── */
-.palette-wrap{ position: relative }
-.palette-btn{
-  width: 34px; height: 34px; border-radius: 50%;
-  border: 1px solid var(--line-2);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); cursor: pointer;
-  transition: color .3s, border-color .3s;
-}
-.palette-btn:hover{ color: var(--text) }
-.palette-btn svg{ width: 16px; height: 16px }
-
-/* اللوحة */
-.palette-panel{
-  position: absolute; inset-block-start: calc(100% + 12px); inset-inline-end: 0;
-  background: var(--card); border: 1px solid var(--line-2);
-  border-radius: 14px; padding: 14px 16px;
-  display: flex; flex-direction: column; gap: 12px;
-  opacity: 0; pointer-events: none;
-  transform: translateY(-8px) scale(.96);
-  transition: opacity .22s, transform .22s;
-  z-index: 200; box-shadow: var(--shadow);
-  min-width: 220px;
-}
-.palette-panel.open{ opacity: 1; pointer-events: all; transform: translateY(0) scale(1) }
-
-.pal-row{ display: flex; flex-direction: column; gap: 8px }
-.pal-label{
-  font-size: .62rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--muted-2);
-}
-.pal-swatches{ display: flex; gap: 8px; align-items: center }
-
-.pal-sep{
-  height: 1px; background: var(--line);
-  margin-inline: -4px;
-}
-
-.pal-swatch{
-  width: 24px; height: 24px; border-radius: 50%;
-  background: var(--sc); border: 2px solid transparent;
-  cursor: pointer; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .2s, border-color .2s, box-shadow .2s;
-}
-.pal-swatch:hover{ transform: scale(1.22) }
-.pal-swatch.pal-active{
-  border-color: rgba(255,255,255,.8);
-  box-shadow: 0 0 0 1px var(--sc);
-}
-[data-theme="light"] .pal-swatch.pal-active{ border-color: rgba(0,0,0,.5) }
-
-/* سواتش الخلفية — تحتاج border دائماً لأنها داكنة */
-.pal-swatch.p3{ border-color: rgba(255,255,255,.12) }
-.pal-swatch.p3:hover{ border-color: rgba(255,255,255,.35) }
-.pal-swatch.p3.pal-active{
-  border-color: rgba(255,255,255,.8);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.3);
-}
 
 .theme-toggle{
   width: 36px; height: 36px; border-radius: 50%;
@@ -446,10 +540,16 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
 .theme-toggle svg{ width: 16px; height: 16px; display: block; transition: opacity .3s }
 .theme-toggle .icon-sun{ opacity: 1 }
 .theme-toggle .icon-moon{ opacity: 0; position: absolute }
+.theme-toggle .icon-mix{ opacity: 0; position: absolute }
 [data-theme="light"] .theme-toggle .icon-sun{ opacity: 0 }
 [data-theme="light"] .theme-toggle .icon-moon{ opacity: 1 }
+[data-theme="light"] .theme-toggle .icon-mix{ opacity: 0 }
+[data-theme="mix"] .theme-toggle .icon-sun{ opacity: 0 }
+[data-theme="mix"] .theme-toggle .icon-moon{ opacity: 0 }
+[data-theme="mix"] .theme-toggle .icon-mix{ opacity: 1 }
+[data-theme="mix"] .theme-toggle{ color: var(--mix-gold) }
 
-.burger{ display: none; width: 40px; height: 40px; border-radius: var(--r-sm); border: 1px solid var(--line-2); align-items: center; justify-content: center; position: relative; z-index: 95 }
+.burger{ display: none; width: 40px; height: 40px; border-radius: var(--r-sm); border: none; background: transparent; align-items: center; justify-content: center; position: relative; z-index: 95 }
 .burger span{ display: block; width: 18px; height: 1.5px; background: var(--text); position: relative; transition: .3s }
 .burger span::before,.burger span::after{ content:""; position:absolute; left:0; width:18px; height:1.5px; background:var(--text); transition:.3s }
 .burger span::before{ top:-6px } .burger span::after{ top:6px }
@@ -614,7 +714,7 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
 /* ── Responsive ── */
 @media (max-width: 768px){
   .story-inner{ flex-direction: column }
-  .story-img{ flex: 0 0 50vw; min-height: 50vw }
+  .story-img{ display: none }
   .story-title{ font-size: clamp(1.8rem,6vw,2.4rem) }
 }
 
@@ -844,7 +944,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   border-radius: 2px;
   z-index: 2;
 }
-.svc-service-block:hover .svc-svc-header::after{
+.svc-service-block:hover .svc-svc-header::after,
+.svc-service-block.block-in .svc-svc-header::after{
   animation: radarScan 1s var(--ease-lux) forwards;
 }
 
@@ -870,7 +971,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   animation: numGlowPulse 4s ease-in-out infinite;
   transition: -webkit-text-stroke-color .5s var(--ease);
 }
-.svc-service-block:hover .svc-svc-num{
+.svc-service-block:hover .svc-svc-num,
+.svc-service-block.block-in .svc-svc-num{
   -webkit-text-stroke-color: var(--accent-2);
   animation-play-state: paused;
 }
@@ -888,7 +990,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   opacity: 0;
   transition: opacity .6s var(--ease);
 }
-.svc-service-block:hover .svc-svc-num::before{ opacity: 1 }
+.svc-service-block:hover .svc-svc-num::before,
+.svc-service-block.block-in .svc-svc-num::before{ opacity: 1 }
 
 /* ── Text area ── */
 .svc-header-text{
@@ -934,7 +1037,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   transition: opacity .4s var(--ease), transform .4s var(--ease);
   stroke-width: 1.4;
 }
-.svc-service-block:hover .svc-ico{
+.svc-service-block:hover .svc-ico,
+.svc-service-block.block-in .svc-ico{
   opacity: 1;
   transform: scale(1.15);
 }
@@ -950,7 +1054,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   background: linear-gradient(90deg, var(--accent), transparent);
   transition: width .7s var(--ease-lux);
 }
-.svc-service-block:hover .svc-title-row h3::after{ width: 100% }
+.svc-service-block:hover .svc-title-row h3::after,
+.svc-service-block.block-in .svc-title-row h3::after{ width: 100% }
 
 .svc-svc-header p{
   color: var(--text);
@@ -966,7 +1071,8 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   transform: translateY(4px);
   transition: opacity .5s var(--ease), transform .5s var(--ease);
 }
-.svc-service-block:hover .svc-svc-header p{
+.svc-service-block:hover .svc-svc-header p,
+.svc-service-block.block-in .svc-svc-header p{
   opacity: 1;
   transform: translateY(0);
 }
@@ -1063,6 +1169,13 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
 .svc-works-track.collapsed{ overflow-x: hidden }
 /* expanded: enable scroll only — card sizes unchanged */
 .svc-works-track.expanded{ overflow-x: auto; flex-wrap: nowrap }
+/* mobile expanded — vertical, no scroll */
+@media (max-width: 900px){
+  .svc-works-track.expanded:not(.photo-track){
+    overflow-x: hidden !important; overflow-y: visible !important;
+    flex-wrap: wrap !important;
+  }
+}
 
 
 .svc-work-card img{
@@ -1336,21 +1449,26 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
 @media (max-width: 900px){
   /* ── Nav overlay ── */
   .nav-links{
-    position: fixed; inset: 0; z-index: 94;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100vh; height: 100dvh;
+    z-index: 94;
     background: var(--bg); flex-direction: column;
     justify-content: flex-start; align-items: stretch; gap: 0;
     transform: translateX(100%); transition: transform .5s var(--ease-lux);
     padding: 90px 24px 40px;
-    overflow-y: auto;
+    overflow-y: auto; overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-open .nav-links{ transform: translateX(0) }
 
   /* nav items — full width rows */
   .nav-links > li{ width: 100%; border-bottom: 1px solid var(--line) }
   .nav-links > li:last-child{ border-bottom: none }
-  .nav-links a{ font-size: 1.15rem; padding: 14px 4px; display: block; width: 100% }
+  .nav-links a{ font-size: 1.15rem; padding: 14px 4px; display: block; width: 100%; color: var(--text) }
   .nav-links a::after{ display: none }
   .nav-social{ display: none }
+
   .burger{ display: flex }
 
   /* ── Dropdown inside mobile overlay ── */
@@ -1439,13 +1557,46 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
     letter-spacing: .08em;
   }
 
-  /* ── Film cards — 2 per row on tablet ── */
-  .svc-work-card{ width: calc((100% - 4px) / 2) !important }
+  /* ── ترتيب العناصر: عنوان → أعمال → زر ── */
+  .svc-service-block{ display: flex; flex-direction: column }
+  .svc-svc-header{ order: 1 }
+  .svc-works-track{ order: 2 }
+  .svc-btn-row{ order: 3; justify-content: center; margin-top: 16px }
 
-  /* ── Photo grid — 3 columns on tablet ── */
-  .svc-works-track.photo-track{
-    grid-template-columns: repeat(3, 1fr);
+  /* ── أعمال الأفلام عمودية بعرض كامل ── */
+  .svc-works-track:not(.photo-track){
+    flex-direction: column !important; overflow: hidden !important;
+    scroll-snap-type: none !important;
   }
+  .svc-work-card{ width: 100% !important; aspect-ratio: 16/9 !important; flex-shrink: 0 }
+
+  /* ── Photo sections: hide show-more btn (all photos scroll automatically) ── */
+  .svc-service-block:has(.photo-track) .svc-btn-row{ display: none !important }
+
+  /* ── Photo grid — 3 rows horizontal scroll ── */
+  .svc-works-track.photo-track{
+    display: grid !important;
+    grid-template-rows: repeat(3, calc((100vw - 48px) / 3.25 * (3/4))) !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: calc((100vw - 48px) / 3.25) !important;
+    grid-template-columns: unset !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: clamp(3px, .5vw, 5px) !important;
+    padding-bottom: 4px;
+  }
+  .svc-works-track.photo-track::-webkit-scrollbar{ display: none }
+  .svc-works-track.photo-track .svc-work-card{
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: unset !important;
+    scroll-snap-align: start;
+  }
+  .svc-works-track.photo-track .svc-work-meta{ display: none !important }
+  .svc-works-track.photo-track.collapsed .svc-work-card:nth-child(n+13){ display: block !important }
 
   /* ── Group title ── */
   .svc-group-title{ flex-wrap: wrap; gap: 14px; padding-block: clamp(28px,4vw,48px) clamp(20px,3vw,36px) }
@@ -1470,10 +1621,17 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   .svc-overview-section{ min-height: auto }
 }
 
+
 /* ── Tablet-only: story image height ── */
 @media (max-width: 768px){
-  .story-img{ min-height: 40vw }
-  .story-stats{ gap: clamp(16px,3vw,28px) }
+  .story-img{ display: none }
+  .story-stats{ flex-wrap: nowrap; gap: 16px }
+  .story-stat{ flex: 1; min-width: 0 }
+  .story-stat-ico{ width: 34px; height: 34px; border-radius: 7px }
+  .story-stat-ico svg{ width: 16px; height: 16px }
+  .story-stat b{ font-size: clamp(1.4rem,4.5vw,2rem) }
+  .story-stat span{ font-size: .72rem }
+  .story-stat-divider{ display: flex }
 }
 
 @media (max-width: 560px){
@@ -1487,11 +1645,10 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   .hero h1{ font-size: clamp(2rem,8vw,2.8rem) }
   .hero p.lead{ font-size: .95rem }
 
-  /* ── Story stats wrap ── */
-  .story-stats{ flex-wrap: wrap; gap: 16px }
-  .story-stat-divider{ display: none }
-  /* each stat takes ~half the row */
-  .story-stat{ flex: 0 0 calc(50% - 8px) }
+  /* ── Story stats — أفقية دائماً ── */
+  .story-stats{ flex-wrap: nowrap; gap: 10px }
+  .story-stat{ flex: 1; min-width: 0 }
+  .story-stat-divider{ display: flex }
 
   /* ── Service block header — even smaller ghost number ── */
   .svc-svc-num{
@@ -1515,9 +1672,10 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   /* ── Film cards — 1 per row on small phones ── */
   .svc-work-card{ width: 100% !important }
 
-  /* ── Photo grid — 2 columns on small phones ── */
+  /* ── Photo grid — same 3-row horizontal scroll on small phones ── */
   .svc-works-track.photo-track{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, calc((100vw - 32px) / 3.25 * (3/4))) !important;
+    grid-auto-columns: calc((100vw - 32px) / 3.25) !important;
   }
 
   /* ── Group title ── */
@@ -1546,7 +1704,7 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   .svc-header-text{ padding: 12px 10px 12px calc(46px + 8px) }
   .svc-title-row h3{ font-size: clamp(.95rem,4vw,1.15rem) }
   .svc-more-btn > span:first-child{ padding-inline-start: 8px }
-  .story-stat{ flex: 0 0 100% }  /* single column on very narrow */
+  .story-stat{ flex: 1; min-width: 0 }  /* أفقية حتى على أصغر شاشة */
   .contact-side h2{ font-size: clamp(1.6rem,6vw,2rem) }
   .sec-title{ font-size: clamp(1.8rem,7vw,2.4rem) }
   .wrap{ padding-inline: 12px }

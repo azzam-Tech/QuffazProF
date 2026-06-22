@@ -202,9 +202,17 @@ function initSvcNumWatermarks(){
 }
 
 function initSvcMoreBtns(){
-  // كل track يبدأ collapsed
+  const mobile = () => window.innerWidth <= 900;
+
+  function applyMobileCollapse(track){
+    if (track.classList.contains("photo-track")) return;
+    const cards = track.querySelectorAll(".svc-work-card");
+    cards.forEach((c, i) => { c.style.display = i < 2 ? "" : "none"; });
+  }
+
   document.querySelectorAll(".svc-works-track").forEach(track => {
     track.classList.add("collapsed");
+    if (mobile()) applyMobileCollapse(track);
   });
 
   document.querySelectorAll(".svc-more-btn").forEach(btn => {
@@ -215,6 +223,30 @@ function initSvcMoreBtns(){
       const label = btn.querySelector("span");
       const isPhotoGrid = track.classList.contains("photo-track");
 
+      if (mobile() && !isPhotoGrid) {
+        const cards = track.querySelectorAll(".svc-work-card");
+        if (!isExpanded) {
+          const scrollY = window.scrollY;
+          track.classList.remove("collapsed");
+          track.classList.add("expanded");
+          cards.forEach(c => { c.style.display = ""; });
+          btn.classList.add("active");
+          label.textContent = "عرض أقل";
+          // نثبّت موضع التمرير حتى لا يقفز للأسفل
+          requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: "instant" }));
+        } else {
+          const scrollY = window.scrollY;
+          track.classList.remove("expanded");
+          track.classList.add("collapsed");
+          applyMobileCollapse(track);
+          btn.classList.remove("active");
+          label.textContent = "عرض المزيد";
+          requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: "instant" }));
+        }
+        return;
+      }
+
+      // ديسكتوب
       if (isPhotoGrid) {
         if (!isExpanded) {
           track.classList.remove("collapsed");
@@ -225,7 +257,7 @@ function initSvcMoreBtns(){
           track.classList.remove("expanded");
           track.classList.add("collapsed");
           btn.classList.remove("active");
-          label.textContent = "اعرض المزيد";
+          label.textContent = "عرض المزيد";
         }
       } else {
         if (!isExpanded) {
@@ -237,14 +269,12 @@ function initSvcMoreBtns(){
           if (cards.length > 4) {
             const cardWidth = cards[0].offsetWidth + 4;
             requestAnimationFrame(() => {
-              setTimeout(() => {
-                track.scrollBy({ left: -Math.abs(cardWidth * 2), behavior: "smooth" });
-              }, 100);
+              setTimeout(() => track.scrollBy({ left: -Math.abs(cardWidth * 2), behavior: "smooth" }), 100);
             });
           }
         } else {
           btn.classList.remove("active");
-          label.textContent = "اعرض المزيد";
+          label.textContent = "عرض المزيد";
           track.scrollTo({ left: 0, behavior: "smooth" });
           setTimeout(() => {
             track.classList.remove("expanded");
@@ -378,125 +408,20 @@ function initStoryAnimations(){
   io.observe(sec);
 }
 
-function initPaletteSwitcher(){
-  const btn   = document.getElementById("paletteBtn");
-  const panel = document.getElementById("palettePanel");
-  const root  = document.documentElement;
-  if (!btn || !panel) return;
-
-  /* فتح/إغلاق */
-  btn.addEventListener("click", e => {
-    e.stopPropagation();
-    const isOpen = panel.classList.toggle("open");
-    panel.setAttribute("aria-hidden", String(!isOpen));
-  });
-  document.addEventListener("click", () => {
-    panel.classList.remove("open");
-    panel.setAttribute("aria-hidden", "true");
-  });
-  panel.addEventListener("click", e => e.stopPropagation());
-
-  /* ── اللون الأول ── */
-  function applyPrimary(accent, a2, a3, soft){
-    root.style.setProperty("--accent",    accent);
-    root.style.setProperty("--accent-2",  a2);
-    root.style.setProperty("--accent-3",  a3);
-    root.style.setProperty("--gold-soft", soft);
-  }
-
-  panel.querySelectorAll(".pal-swatch.p1").forEach(sw => {
-    sw.addEventListener("click", () => {
-      const { accent, a2, a3, soft } = sw.dataset;
-      applyPrimary(accent, a2, a3, soft);
-      panel.querySelectorAll(".pal-swatch.p1").forEach(s => s.classList.remove("pal-active"));
-      sw.classList.add("pal-active");
-      localStorage.setItem("quffaz-primary", JSON.stringify({ accent, a2, a3, soft }));
-    });
-  });
-
-  /* ── خلفية الموقع ── */
-  function applyBg(preset){
-    if (preset === "default"){
-      document.documentElement.removeAttribute("data-bg");
-    } else {
-      document.documentElement.setAttribute("data-bg", preset);
-    }
-  }
-
-  panel.querySelectorAll(".pal-swatch.p3").forEach(sw => {
-    sw.addEventListener("click", () => {
-      const preset = sw.dataset.bg;
-      applyBg(preset);
-      panel.querySelectorAll(".pal-swatch.p3").forEach(s => s.classList.remove("pal-active"));
-      sw.classList.add("pal-active");
-      localStorage.setItem("quffaz-bg", preset);
-    });
-  });
-
-  /* ── اللون الثاني ── */
-  function applySecondary(sec){
-    if (sec === "none"){
-      root.style.setProperty("--accent-sec", "var(--accent)");
-    } else {
-      root.style.setProperty("--accent-sec", sec);
-    }
-  }
-
-  panel.querySelectorAll(".pal-swatch.p2").forEach(sw => {
-    sw.addEventListener("click", () => {
-      const sec = sw.dataset.sec;
-      applySecondary(sec);
-      panel.querySelectorAll(".pal-swatch.p2").forEach(s => s.classList.remove("pal-active"));
-      sw.classList.add("pal-active");
-      localStorage.setItem("quffaz-secondary", sec);
-    });
-  });
-
-  /* ── استعادة المحفوظ ── */
-  const savedP = localStorage.getItem("quffaz-primary");
-  if (savedP){
-    try {
-      const { accent, a2, a3, soft } = JSON.parse(savedP);
-      applyPrimary(accent, a2, a3, soft);
-      panel.querySelectorAll(".pal-swatch.p1").forEach(sw => {
-        sw.classList.toggle("pal-active", sw.dataset.accent === accent);
-      });
-    } catch(e){}
-  }
-
-  const savedBg = localStorage.getItem("quffaz-bg");
-  if (savedBg){
-    applyBg(savedBg);
-    panel.querySelectorAll(".pal-swatch.p3").forEach(sw => {
-      sw.classList.toggle("pal-active", sw.dataset.bg === savedBg);
-    });
-  }
-
-  const savedS = localStorage.getItem("quffaz-secondary");
-  if (savedS){
-    applySecondary(savedS);
-    panel.querySelectorAll(".pal-swatch.p2").forEach(sw => {
-      sw.classList.toggle("pal-active", sw.dataset.sec === savedS);
-    });
-  }
-}
 
 function initThemeToggle(){
   const btn  = document.getElementById("themeToggle");
   const root = document.documentElement;
+  const cycle = ["dark","light","mix"];
   const saved = localStorage.getItem("quffaz-theme");
-  if (saved === "light") root.setAttribute("data-theme","light");
-  else root.setAttribute("data-theme","dark");
+  const initial = cycle.includes(saved) ? saved : "dark";
+  root.setAttribute("data-theme", initial);
 
   btn && btn.addEventListener("click", () => {
-    const isLight = root.getAttribute("data-theme") === "light";
-    if (isLight){
-      root.setAttribute("data-theme","dark");
-      localStorage.setItem("quffaz-theme","dark");
-    } else {
-      root.setAttribute("data-theme","light");
-      localStorage.setItem("quffaz-theme","light");
-    }
+    const current = root.getAttribute("data-theme");
+    const next = cycle[(cycle.indexOf(current) + 1) % cycle.length];
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("quffaz-theme", next);
   });
 }
 
@@ -572,6 +497,17 @@ function initReveal(){
     });
   }, { threshold:.12, rootMargin:"0px 0px -8% 0px" });
   els.forEach(e => io.observe(e));
+
+  // animation عناوين الخدمات عند التمرير
+  const blockIo = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        en.target.classList.add("block-in");
+        blockIo.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll(".svc-service-block").forEach(b => blockIo.observe(b));
 }
 
 function initForm(){
@@ -679,7 +615,6 @@ function initNavDropdowns() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initThemeToggle();
-  initPaletteSwitcher();
   initHeroReveal();
   renderPortfolio();
   initPortfolioFilters();

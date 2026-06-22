@@ -60,59 +60,11 @@
       </div>
 
       <!-- مبدّل الألوان -->
-      <div class="palette-wrap">
-        <button class="palette-btn" id="paletteBtn" aria-label="تغيير ألوان الموقع">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg>
-        </button>
-        <div class="palette-panel" id="palettePanel" aria-hidden="true">
-
-          <!-- اللون الأول -->
-          <div class="pal-row">
-            <span class="pal-label">اللون الأول</span>
-            <div class="pal-swatches">
-              <button class="pal-swatch p1 pal-active" title="أحمر"    data-role="primary" data-accent="#e8472b" data-a2="#ff5c3e" data-a3="#c9391f" data-soft="rgba(232,71,43,.15)"  style="--sc:#e8472b"></button>
-              <button class="pal-swatch p1"             title="ذهبي"   data-role="primary" data-accent="#c4973d" data-a2="#dbb050" data-a3="#a87d2a" data-soft="rgba(196,151,61,.15)" style="--sc:#c4973d"></button>
-              <button class="pal-swatch p1"             title="أزرق"   data-role="primary" data-accent="#2563d4" data-a2="#3d78e8" data-a3="#1a4fb0" data-soft="rgba(37,99,212,.15)"  style="--sc:#2563d4"></button>
-              <button class="pal-swatch p1"             title="بنفسجي" data-role="primary" data-accent="#8b3fe8" data-a2="#a05cf5" data-a3="#7230c4" data-soft="rgba(139,63,232,.15)" style="--sc:#8b3fe8"></button>
-              <button class="pal-swatch p1"             title="زمردي"  data-role="primary" data-accent="#0d9f6e" data-a2="#10be84" data-a3="#0a835b" data-soft="rgba(13,159,110,.15)" style="--sc:#0d9f6e"></button>
-            </div>
-          </div>
-
-          <div class="pal-sep"></div>
-
-          <!-- خلفية الموقع -->
-          <div class="pal-row">
-            <span class="pal-label">خلفية الموقع</span>
-            <div class="pal-swatches">
-              <button class="pal-swatch p3 pal-active" title="فحمي (افتراضي)" data-bg="default" style="--sc:#17171c"></button>
-              <button class="pal-swatch p3"             title="أسود"           data-bg="black"   style="--sc:#111111"></button>
-              <button class="pal-swatch p3"             title="نيلي"           data-bg="navy"    style="--sc:#0f1e31"></button>
-              <button class="pal-swatch p3"             title="بنفسجي"         data-bg="indigo"  style="--sc:#181535"></button>
-              <button class="pal-swatch p3"             title="دافئ"           data-bg="warm"    style="--sc:#221a13"></button>
-            </div>
-          </div>
-
-          <div class="pal-sep"></div>
-
-          <!-- اللون الثاني -->
-          <div class="pal-row">
-            <span class="pal-label">اللون الثاني</span>
-            <div class="pal-swatches">
-              <button class="pal-swatch p2 pal-active" title="بدون"    data-role="secondary" data-sec="none"    style="--sc:transparent; border:1px solid rgba(255,255,255,.2)"><svg viewBox="0 0 10 10" style="width:10px;height:10px;opacity:.4"><line x1="1" y1="9" x2="9" y2="1" stroke="currentColor" stroke-width="1.5"/></svg></button>
-              <button class="pal-swatch p2"             title="ذهبي"   data-role="secondary" data-sec="#c4973d" style="--sc:#c4973d"></button>
-              <button class="pal-swatch p2"             title="أحمر"   data-role="secondary" data-sec="#e8472b" style="--sc:#e8472b"></button>
-              <button class="pal-swatch p2"             title="سماوي"  data-role="secondary" data-sec="#0ea5e9" style="--sc:#0ea5e9"></button>
-              <button class="pal-swatch p2"             title="وردي"   data-role="secondary" data-sec="#e84393" style="--sc:#e84393"></button>
-              <button class="pal-swatch p2"             title="كهرماني" data-role="secondary" data-sec="#f59e0b" style="--sc:#f59e0b"></button>
-            </div>
-          </div>
-
-        </div>
-      </div>
 
       <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zm0-13a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1zm0 14a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm9-8a1 1 0 010 2h-1a1 1 0 010-2h1zM5 12a1 1 0 010 2H4a1 1 0 010-2h1zm12.66-6.07a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zM7.05 17.66a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zm10.61 0l.71.71a1 1 0 11-1.41 1.41l-.71-.71a1 1 0 011.41-1.41zM7.05 6.34L6.34 5.63a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+        <svg class="icon-mix" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3C8 7 8 17 12 21" stroke-linecap="round"/><path d="M12 3C16 7 16 17 12 21" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
       </button>
       <button class="burger" aria-label="القائمة"><span></span></button>
     </div>
