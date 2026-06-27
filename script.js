@@ -2,61 +2,36 @@
    قفّاز · Quffaz — Interactions & Media (Luxury Redesign)
    ═══════════════════════════════════════════════════════════ */
 
-/* ---- Google Drive media IDs ---- */
-const IMG_IDS = [
-  "17uRfuU9D7ZM4zWqo3b9t5u6KBJsItRb_",
-  "14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG",
-  "142SeMsEnpPyoNtucsSAwhLtYBZ38o9bm",
-  "1jmHhhtGw6MWyX2A9nymN8w0K0FI4KJZS",
-  "1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D",
-  "1IDlNk_-eAF_PaiydDAovwr0DnbfT5NUG",
-  "1VRDBefgd8ibgVXTngCsQPpCUIH9IcOER",
-  "1_GpEhl8wgLP33sjZyltkYNvxKHAIcmIp",
-  "1OohQKS4qSUZfdUkWirWdrnhfIkEZtq7V",
-  "166qNurql8VVVQD9Nl7G_k_6__0JAkKko",
-  "1l8s3Pq2yCGODET2lGoPM0LF4wvVQ-xjZ",
-  "1Iee4aJ4tpgtE_3CRY-bAXtIOb1WGRn_a",
-  "1hGw11wBQghsLxwHqqHfLlvLhK-bLBeyS",
-  "1se1g1YutCsoKbMm0q_fChiGsK0WJSdGX"
-];
-const VIDEO_IDS = [
-  "14zpiizgvRZmzwU5Eo_l_RE5givmHI3ph",
-  "1wTORQKa_vDFSGAK6KAmlzOeGnzXID7PV",
-  "1fxAvD-PmKJ8OyP0u2qsZ-R_R84qwrVjx",
-  "11TsYmsOg-Ir5YXsznHsqfxcRyMpQbWYx"
+/* ---- الصور المحلية (images/1.png … images/117.png) ---- */
+const IMG_IDS = Array.from({length: 30}, (_, i) => i + 1);
+// [1, 2, 3, ..., 30]
+
+/* ---- YouTube video IDs (فيديوهات القناة) ---- */
+const YT_IDS = [
+  "OWYhlBX0NZ4",
+  "YMrE6DHoa0U",
+  "W2dc2vc7b6A",
+  "fcuxbYrnW5w",
+  "BxK7cfPS56E",
+  "31_xo2KYK8c"
 ];
 
-const imgUrl   = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
-const thumbUrl = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
-const altUrl   = id => `https://lh3.googleusercontent.com/d/${id}=w1600`;
-const embedUrl = id => `https://drive.google.com/file/d/${id}/preview`;
+const imgUrl   = id => `images/${id}.png`;
+const thumbUrl = id => `images/${id}.png`;
 
-const img  = i => IMG_IDS[i % IMG_IDS.length];
-const vid  = i => VIDEO_IDS[i % VIDEO_IDS.length];
+const img = i => IMG_IDS[i % IMG_IDS.length];
+const vid = i => YT_IDS[i % YT_IDS.length];
 
-/* graceful fallback gradients when Drive blocks hotlinking */
-const FALLBACKS = [
-  "linear-gradient(135deg,#2a1410,#0e0e12)",
-  "linear-gradient(135deg,#221a10,#0e0e12)",
-  "linear-gradient(135deg,#101820,#0e0e12)",
-  "linear-gradient(135deg,#1c1320,#0e0e12)",
-  "linear-gradient(135deg,#101c16,#0e0e12)"
-];
-function withFallback(el, idx){
-  el.dataset.try = "0";
-  el.addEventListener("error", () => {
-    const id = el.dataset.gid;
-    const step = +el.dataset.try;
-    if (step === 0 && id){
-      el.dataset.try = "1";
-      el.src = altUrl(id);
-      return;
-    }
-    const host = el.closest(".work-card,.pf-card,figure,.svc-work-card,.wd-item") || el.parentElement;
-    if (host) host.style.background = FALLBACKS[idx % FALLBACKS.length];
-    el.style.visibility = "hidden";
-  });
-}
+/* ---- YouTube helpers ---- */
+const ytThumb   = id => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+const ytThumbMq = id => `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+const ytEmbed   = id => `https://www.youtube.com/embed/${id}?autoplay=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3&loop=1&playlist=${id}`;
+
+/* الصور محلية الآن — لا حاجة لـ fallback */
+function withFallback(){ /* no-op */ }
+
+/* ── YouTube logo SVG compact ── */
+const YT_LOGO = `<svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="13" rx="3" fill="#FF0000"/><polygon points="7,3.5 7,9.5 13,6.5" fill="white"/></svg>`;
 
 /* ---------- icons ---------- */
 const ICON = {
@@ -154,42 +129,189 @@ const FILM_SVCS = [
   { id:"films-occ-works",   works:["ليلة العمر","فرحٌ وذكرى","لمسة وفاء","ضيافة الكرام","ذكرى لا تُنسى","فرح الأسرة"] }
 ];
 
+const PHOTO_PROJECTS = {
+  "photos-comm-works": [
+    { name:"وزارة الرياضة",  logo:"assets/logos/1.svg",  imgs:[0,1,2,3,4,5,6,7] },
+    { name:"نيوم",            logo:"assets/logos/2.svg",  imgs:[2,3,4,5,6,7,8,9] },
+    { name:"أرامكو",          logo:"assets/logos/3.svg",  imgs:[4,5,6,7,8,9,10,11] },
+    { name:"stc",             logo:"assets/logos/4.svg",  imgs:[6,7,8,9,10,11,12,13] },
+  ],
+  "photos-event-works": [
+    { name:"قمة المستقبل",   logo:"assets/logos/5.svg",  imgs:[1,2,3,4,5,6,7,8] },
+    { name:"منتدى الإعلام",  logo:"assets/logos/6.svg",  imgs:[0,3,4,5,6,7,8,9] },
+    { name:"موسم الرياض",    logo:"assets/logos/7.svg",  imgs:[2,4,5,6,7,8,9,10] },
+    { name:"ليالي التأسيس",  logo:"assets/logos/8.svg",  imgs:[3,5,6,7,8,9,10,11] },
+  ],
+  "photos-occ-works": [
+    { name:"آل الشمري",       logo:"assets/logos/9.svg",  imgs:[0,1,2,3,4,5,6,7] },
+    { name:"آل القحطاني",     logo:"assets/logos/10.svg", imgs:[1,3,4,5,6,7,8,9] },
+    { name:"حفل التخرج",      logo:"assets/logos/1.svg",  imgs:[2,4,5,6,7,8,9,10] },
+  ],
+  "photos-aerial-works": [
+    { name:"الرياض",          logo:"assets/logos/2.svg",  imgs:[0,1,2,3,4,5,6,7] },
+    { name:"نيوم",            logo:"assets/logos/3.svg",  imgs:[2,3,4,5,6,7,8,9] },
+    { name:"جدة",             logo:"assets/logos/4.svg",  imgs:[4,5,6,7,8,9,10,11] },
+  ],
+};
+
 const PHOTO_SVCS = [
-  { id:"photos-comm-works",   works:["روح العلامة","إضاءة المنتج","تفاصيل التفرّد","حضور يُلفت","نكهة الفاخر","ترف اللحظة","ضوء وظل","انعكاس","لمسة ذهبية","هوية المنتج","تكوين فاخر","بصمة العلامة","عمق الماركة","صورة وقصة","ألوان العلامة","فخامة التفاصيل","زاوية مختلفة","إبداع الإضاءة"] },
-  { id:"photos-event-works",  works:["لحظات القمة","الحضور الملكي","ذروة الحدث","التواصل الحقيقي","خلف الكواليس","سجل الذكريات","نبض القاعة","حضور مؤثر","لقطة قيادية","طاولة القرار","تصفيق الجمهور","لحظة التكريم","همسة على الهامش","نظرة القائد","لقاء الأفكار","ضيوف الشرف","بداية الجلسة","ختام مشرف"] },
-  { id:"photos-occ-works",    works:["يوم العمر","عيون الفرح","التفاصيل الصغيرة","الذكرى الخالدة","ابتسامة حقيقية","لحظة خاصة","دفء العائلة","بداية الرحلة","وقفة العروس","أزهار الفرح","اللمسة الأخيرة","ذاكرة القلب","عناق الفرح","نظرة الأب","خطوة العمر","أضواء السهرة","هدية القلب","لحظة لن تُنسى"] },
-  { id:"photos-aerial-works", works:["أفق الرياض","ضاحية الضوء","شوارع تحكي","هوية المكان","ارتفاع يكشف","مدينة من فوق","خطوط المدينة","ظلال العمارة","بانوراما الليل","المربعات الخضراء","طريق يمتد","سكون الفجر","ملامح الحي","أسطح المدينة","نهر الضوء","المدى الواسع","تقاطع الحضارة","سماء الرياض"] }
+  { id:"photos-comm-works"   },
+  { id:"photos-event-works"  },
+  { id:"photos-occ-works"    },
+  { id:"photos-aerial-works" }
 ];
+
+function pfcLogo(name){
+  const palette = ["#C8923A","#4A8FA3","#7B5EA7","#4A7C59","#B85B4A","#5B6DB8","#A07B3F","#3A7FC8"];
+  const hue = name.split("").reduce((a,c) => a + c.charCodeAt(0), 0) % palette.length;
+  const color = palette[hue];
+  const label = name.replace(/\s+/g,"").slice(0,2);
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'>`+
+    `<rect width='48' height='48' rx='10' fill='${color}' fill-opacity='.12'/>`+
+    `<rect width='48' height='48' rx='10' fill='none' stroke='${color}' stroke-width='1.2' stroke-opacity='.45'/>`+
+    `<text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' `+
+      `font-family='system-ui,Arial' font-size='13' font-weight='700' fill='${color}'>${label}</text>`+
+  `</svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+function renderPhotoTrack(track, imgs){
+  track.innerHTML = imgs.map((imgIdx, k) => {
+    const iId = IMG_IDS[imgIdx % IMG_IDS.length];
+    return `<figure class="svc-work-card" data-img="${iId}" tabindex="0" role="button" aria-label="عرض الصورة">
+      <img src="${imgUrl(iId)}" alt="" loading="lazy" data-gid="${iId}" data-fb="${k}">
+      <span class="ph-ico">${ICON.expand}</span>
+    </figure>`;
+  }).join("");
+  track.querySelectorAll("img[data-fb]").forEach(e => withFallback(e, +e.dataset.fb));
+}
 
 function renderServiceRails(){
   FILM_SVCS.forEach((svc, si) => {
     const el = document.getElementById(svc.id);
     if (!el) return;
     el.innerHTML = svc.works.map((title, wi) => {
-      const vId = VIDEO_IDS[(si + wi) % VIDEO_IDS.length];
-      const fb  = si * 6 + wi;
-      return `<article class="svc-work-card" data-video="${vId}" tabindex="0" role="button" aria-label="تشغيل ${title}">
-        <img src="${thumbUrl(vId)}" alt="${title}" loading="lazy" data-gid="${vId}" data-fb="${fb}">
+      const ytId = YT_IDS[(si * 6 + wi) % YT_IDS.length];
+      return `<article class="svc-work-card yt-card" data-ytvideo="${ytId}" data-title="${title}" tabindex="0" role="button" aria-label="تشغيل ${title}">
+        <img src="${ytThumb(ytId)}" alt="${title}" loading="lazy" onerror="this.src='${ytThumbMq(ytId)}'">
         <span class="play-badge">${ICON.play}</span>
+        <span class="yt-badge">${YT_LOGO}</span>
         <div class="svc-work-meta"><h4>${title}</h4></div>
       </article>`;
     }).join("");
-    el.querySelectorAll("img[data-fb]").forEach(e => withFallback(e, +e.dataset.fb));
   });
 
-  PHOTO_SVCS.forEach((svc, si) => {
-    const el = document.getElementById(svc.id);
-    if (!el) return;
-    el.innerHTML = svc.works.map((title, wi) => {
-      const iId = IMG_IDS[(si * 3 + wi) % IMG_IDS.length];
-      const fb  = 30 + si * 6 + wi;
-      return `<figure class="svc-work-card" data-img="${iId}" tabindex="0" role="button" aria-label="عرض ${title}">
-        <img src="${imgUrl(iId)}" alt="${title}" loading="lazy" data-gid="${iId}" data-fb="${fb}">
-        <span class="ph-ico">${ICON.expand}</span>
-        <div class="svc-work-meta"><h4>${title}</h4></div>
-      </figure>`;
+  PHOTO_SVCS.forEach(svc => {
+    const track = document.getElementById(svc.id);
+    if (!track) return;
+    const projects = PHOTO_PROJECTS[svc.id] || [];
+    if (!projects.length) return;
+
+
+
+    const carousel = document.createElement("div");
+    carousel.className = "photo-filter-chain pfc-carousel";
+
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "pfc-arrow";
+    prevBtn.setAttribute("aria-label", "السابق");
+    prevBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>`;
+
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "pfc-arrow";
+    nextBtn.setAttribute("aria-label", "التالي");
+    nextBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>`;
+
+    const viewport = document.createElement("div");
+    viewport.className = "pfc-viewport";
+
+    const pfcTrack = document.createElement("div");
+    pfcTrack.className = "pfc-track";
+
+    const N = projects.length;
+    const GHOST = 2;
+    // ghost cards: last 2 projects prepended, first 2 appended — for visual wrap-around
+    const allProjs = [...projects.slice(N - GHOST), ...projects, ...projects.slice(0, GHOST)];
+    pfcTrack.innerHTML = allProjs.map((p, domIdx) => {
+      const isGhost = domIdx < GHOST || domIdx >= GHOST + N;
+      const realI = isGhost ? (domIdx < GHOST ? N - GHOST + domIdx : domIdx - GHOST - N) : domIdx - GHOST;
+      return `<button class="pfc-card${isGhost ? " pfc-ghost" : ""}" data-proj="${realI}" aria-selected="false" aria-label="${p.name}">` +
+        `<span class="pfc-logo-wrap"><img class="pfc-logo-img" src="${p.logo || pfcLogo(p.name)}" alt="${p.name}" onerror="this.src='${pfcLogo(p.name)}'"></span>` +
+        `<span class="pfc-name">${p.name}</span>` +
+      `</button>`;
     }).join("");
-    el.querySelectorAll("img[data-fb]").forEach(e => withFallback(e, +e.dataset.fb));
+
+    viewport.appendChild(pfcTrack);
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(viewport);
+    carousel.appendChild(nextBtn);
+    track.parentElement.insertBefore(carousel, track);
+
+    let realIdx = 0;
+
+    function updateCarousel(){
+      const domActive = realIdx + GHOST;
+      const cards = pfcTrack.querySelectorAll(".pfc-card");
+      const gap = 16;
+      let offsets = [], x = 0;
+      cards.forEach(card => { offsets.push(x); x += card.offsetWidth + gap; });
+
+      // حساب عرض الـ viewport تلقائياً = 4 × متوسط STRIDE
+      const totalStride = x - gap; // إجمالي العرض بدون الـ gap الأخيرة
+      const avgStride = (totalStride + gap) / cards.length;
+      const idealVpW = Math.round(avgStride * 4);
+      const maxVpW = Math.round(window.innerWidth * 0.88);
+      viewport.style.width = Math.min(idealVpW, maxVpW) + "px";
+
+      const vpW = viewport.offsetWidth;
+      const activeCard = cards[domActive];
+      const cardCenter = offsets[domActive] + (activeCard ? activeCard.offsetWidth / 2 : 0);
+      pfcTrack.style.transform = `translateX(${vpW / 2 - cardCenter}px)`;
+      cards.forEach((card, domIdx) => {
+        card.dataset.pos = String(domIdx - domActive);
+        card.setAttribute("aria-selected", domIdx === domActive ? "true" : "false");
+      });
+      prevBtn.disabled = realIdx <= 0;
+      nextBtn.disabled = realIdx >= N - 1;
+    }
+
+    function selectProject(idx){
+      realIdx = Math.max(0, Math.min(idx, N - 1));
+      updateCarousel();
+      const proj = projects[realIdx];
+      if (!proj) return;
+      track.classList.remove("expanded");
+      track.classList.add("collapsed");
+      const moreBtn = track.parentElement.querySelector(".photo-more-btn");
+      if (moreBtn) {
+        moreBtn.classList.remove("active");
+        const lbl = moreBtn.querySelector("span");
+        if (lbl) lbl.textContent = "عرض المزيد";
+      }
+      renderPhotoTrack(track, proj.imgs);
+    }
+
+    prevBtn.addEventListener("click", () => selectProject(realIdx - 1));
+    nextBtn.addEventListener("click", () => selectProject(realIdx + 1));
+
+    let touchStartX = 0;
+    viewport.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) selectProject(realIdx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+    pfcTrack.querySelectorAll(".pfc-card").forEach((card, domIdx) => {
+      const realI = parseInt(card.dataset.proj);
+      card.addEventListener("click", () => { if (realI !== realIdx) selectProject(realI); });
+    });
+
+    renderPhotoTrack(track, projects[0].imgs);
+    updateCarousel();
+    window.addEventListener("load", updateCarousel, { once: false });
+    // إعادة الحساب بعد تحميل أي لوقو في الكاروسيل
+    pfcTrack.querySelectorAll("img.pfc-logo-img").forEach(img => {
+      if (!img.complete) img.addEventListener("load", updateCarousel, { once: true });
+    });
   });
 }
 
@@ -318,15 +440,16 @@ function renderWorkDetail(){
   const tagsEl = document.getElementById("wdTags");
   if (tagsEl) tagsEl.innerHTML = (WD_TAGS[w.cat] || []).map(t => `<span>${t}</span>`).join("");
 
-  const media = [{ kind:"video", id:vid(n) }];
+  const media = [{ kind:"ytvideo", id:vid(n) }];
   for (let k = 0; k < 5; k++) media.push({ kind:"img", id:img(n + k * 2) });
 
   gal.innerHTML = media.map((m, k) => {
-    if (m.kind === "video"){
+    if (m.kind === "ytvideo"){
       return `
-        <article class="wd-item" data-video="${m.id}" tabindex="0" role="button" aria-label="تشغيل الفيديو">
-          <img src="${thumbUrl(m.id)}" alt="${w.t}" loading="lazy" data-gid="${m.id}" data-fb="${k}">
+        <article class="wd-item yt-card" data-ytvideo="${m.id}" tabindex="0" role="button" aria-label="تشغيل الفيديو">
+          <img src="${ytThumb(m.id)}" alt="${w.t}" loading="lazy" onerror="this.src='${ytThumbMq(m.id)}'">
           <span class="play-badge">${ICON.play}</span>
+          <span class="yt-badge">${YT_LOGO}</span>
         </article>`;
     }
     return `
@@ -342,45 +465,173 @@ function renderWorkDetail(){
    LIGHTBOX
    ========================================================= */
 function initLightbox(){
-  const lb = document.getElementById("lightbox");
+  const lb       = document.getElementById("lightbox");
   if (!lb) return;
-  const inner = lb.querySelector(".lb-inner");
-  const closeBtn = lb.querySelector(".lb-close");
-  let lastFocus = null;
+  const inner      = lb.querySelector(".lb-inner");
+  const body       = lb.querySelector(".lb-body");
+  const closeBtn   = lb.querySelector("#lbClose");
+  const prevBtn    = lb.querySelector("#lbPrev");
+  const nextBtn    = lb.querySelector("#lbNext");
+  const titleEl    = lb.querySelector("#lbTitle");
+  const counter    = lb.querySelector("#lbCounter");
+  const hints      = lb.querySelector("#lbHints");
+  const filmstrip  = lb.querySelector("#lbFilmstrip");
+  const filmTrack  = lb.querySelector("#lbFilmTrack");
 
+  let allCards = [], curIdx = 0, lastFocus = null;
+
+  /* ── شريط الصور المصغرة ── */
+  const buildFilmstrip = () => {
+    if (!filmTrack) return;
+    const multi = allCards.length > 1;
+    lb.classList.toggle("has-strip", multi);
+    if (!multi){ filmTrack.innerHTML = ""; return; }
+
+    filmTrack.innerHTML = allCards.map((card, i) => {
+      const ytId  = card.dataset.ytvideo;
+      const imgId = card.dataset.img;
+      let src = ytId ? ytThumb(ytId) : imgId ? thumbUrl(imgId) : "";
+      const active = i === curIdx ? " active" : "";
+      return `<button class="lb-film-item${active}" data-idx="${i}" aria-label="انتقل إلى ${i + 1}">
+        ${src ? `<img src="${src}" alt="" loading="lazy"${ytId ? ` onerror="this.src='${ytThumbMq(ytId)}'"` : ""}>` : `<span class="lb-film-num">${i + 1}</span>`}
+        ${ytId ? `<span class="lb-film-yt"></span>` : ""}
+      </button>`;
+    }).join("");
+
+    filmTrack.querySelectorAll(".lb-film-item").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.stopPropagation();
+        curIdx = parseInt(btn.dataset.idx);
+        renderCard(allCards[curIdx]);
+        syncFilmstrip();
+      });
+    });
+    scrollFilmstripToActive();
+  };
+
+  const syncFilmstrip = () => {
+    if (!filmTrack) return;
+    filmTrack.querySelectorAll(".lb-film-item").forEach((btn, i) => btn.classList.toggle("active", i === curIdx));
+    scrollFilmstripToActive();
+  };
+
+  const scrollFilmstripToActive = () => {
+    if (!filmTrack) return;
+    const active = filmTrack.querySelector(".lb-film-item.active");
+    if (active) active.scrollIntoView({ block:"nearest", inline:"center", behavior:"smooth" });
+  };
+
+  /* ── رسم محتوى الكارت ── */
+  const renderCard = node => {
+    const ytId  = node.dataset.ytvideo;
+    const imgId = node.dataset.img;
+    const title = node.dataset.title || node.querySelector("h4,h3")?.textContent?.trim() || "";
+
+    inner.classList.toggle("video",   !!ytId);
+    inner.classList.toggle("yt-mode", !!ytId);
+    body.innerHTML = "";
+
+    if (titleEl) titleEl.textContent = title;
+    if (counter) counter.textContent = allCards.length > 1 ? `${curIdx + 1} / ${allCards.length}` : "";
+    const showNav = allCards.length > 1;
+    if (prevBtn) prevBtn.style.opacity = showNav ? "1" : "0";
+    if (nextBtn) nextBtn.style.opacity = showNav ? "1" : "0";
+
+    if (ytId){
+      body.innerHTML = `
+        <div class="yt-cinema">
+          <iframe id="ytIframe"
+            src="${ytEmbed(ytId)}"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowfullscreen>
+          </iframe>
+          <div class="yt-overlay" id="ytOverlay">
+            <button class="yt-ctrl-btn" id="ytFs" aria-label="شاشة كاملة (F)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </button>
+          </div>
+        </div>`;
+
+      setTimeout(() => {
+        const overlay = document.getElementById("ytOverlay");
+        const fsBtn   = document.getElementById("ytFs");
+        const cinema  = body.querySelector(".yt-cinema");
+        if (!overlay) return;
+        overlay.classList.add("vis");
+        fsBtn?.addEventListener("click", e => {
+          e.stopPropagation();
+          document.fullscreenElement ? document.exitFullscreen() : cinema.requestFullscreen();
+        });
+      }, 150);
+
+    } else if (imgId){
+      body.innerHTML = `<img src="${imgUrl(imgId)}" alt="عرض الصورة">`;
+    }
+
+    syncFilmstrip();
+  };
+
+  /* ── فتح ── */
   const open = node => {
     lastFocus = document.activeElement;
-    const vId = node.dataset.video;
-    const imgId = node.dataset.img;
-    inner.classList.toggle("video", !!vId);
-    if (vId){
-      inner.querySelector(".lb-body").innerHTML =
-        `<iframe src="${embedUrl(vId)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="مشغّل الفيديو"></iframe>`;
-    } else if (imgId){
-      inner.querySelector(".lb-body").innerHTML =
-        `<img src="${imgUrl(imgId)}" alt="عرض الصورة">`;
-    }
+    const track = node.closest(".svc-works-track,#wdGallery,#photoMasonry,#pfGrid");
+    allCards = track
+      ? [...track.querySelectorAll("[data-img],[data-ytvideo]")]
+      : [node];
+    curIdx = Math.max(0, allCards.indexOf(node));
+    renderCard(node);
+    buildFilmstrip();
     lb.classList.add("open");
+    lb.setAttribute("aria-hidden","false");
     document.body.style.overflow = "hidden";
-    closeBtn.focus();
+    if (hints) { hints.classList.add("vis"); setTimeout(() => hints.classList.remove("vis"), 3000); }
+    closeBtn?.focus();
   };
+
+  /* ── تنقل ── */
+  const navigate = dir => {
+    curIdx = (curIdx + dir + allCards.length) % allCards.length;
+    renderCard(allCards[curIdx]);
+  };
+
+  /* ── إغلاق ── */
   const close = () => {
-    lb.classList.remove("open");
-    inner.querySelector(".lb-body").innerHTML = "";
+    lb.classList.remove("open","has-strip");
+    lb.setAttribute("aria-hidden","true");
+    body.innerHTML = "";
+    if (filmTrack) filmTrack.innerHTML = "";
     document.body.style.overflow = "";
+    allCards = []; curIdx = 0;
     if (lastFocus) lastFocus.focus();
   };
 
+  /* ── سحب باللمس ── */
+  let tx = 0;
+  lb.addEventListener("touchstart", e => { tx = e.changedTouches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend",   e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50 && allCards.length > 1) navigate(dx > 0 ? 1 : -1);
+  });
+
+  /* ── أحداث ── */
   document.addEventListener("click", e => {
-    const card = e.target.closest("[data-video],[data-img]");
+    const card = e.target.closest("[data-img],[data-ytvideo]");
     if (card && !e.target.closest(".lightbox")) open(card);
   });
+
   document.addEventListener("keydown", e => {
-    const card = e.target.closest && e.target.closest("[data-video],[data-img]");
-    if (card && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); open(card); }
-    if (e.key === "Escape" && lb.classList.contains("open")) close();
+    const card = e.target.closest && e.target.closest("[data-img],[data-ytvideo]");
+    if (card && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); open(card); return; }
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape")     { close(); return; }
+    if (e.key === "ArrowLeft")  { e.preventDefault(); navigate(1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); navigate(-1); return; }
+    if (e.key === "f" || e.key === "F") { document.getElementById("ytFs")?.click(); }
   });
-  closeBtn.addEventListener("click", close);
+
+  prevBtn?.addEventListener("click",  () => navigate(-1));
+  nextBtn?.addEventListener("click",  () => navigate(1));
+  closeBtn?.addEventListener("click", close);
   lb.addEventListener("click", e => { if (e.target === lb) close(); });
 }
 
@@ -412,7 +663,7 @@ function initStoryAnimations(){
 function initThemeToggle(){
   const btn  = document.getElementById("themeToggle");
   const root = document.documentElement;
-  const cycle = ["dark","light","mix"];
+  const cycle = ["dark","light"];
   const saved = localStorage.getItem("quffaz-theme");
   const initial = cycle.includes(saved) ? saved : "dark";
   root.setAttribute("data-theme", initial);

@@ -64,7 +64,6 @@
       <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zm0-13a1 1 0 011 1v1a1 1 0 11-2 0V5a1 1 0 011-1zm0 14a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm9-8a1 1 0 010 2h-1a1 1 0 010-2h1zM5 12a1 1 0 010 2H4a1 1 0 010-2h1zm12.66-6.07a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zM7.05 17.66a1 1 0 010 1.41l-.71.71a1 1 0 11-1.41-1.41l.71-.71a1 1 0 011.41 0zm10.61 0l.71.71a1 1 0 11-1.41 1.41l-.71-.71a1 1 0 011.41-1.41zM7.05 6.34L6.34 5.63a1 1 0 00-1.41 1.41l.71.71a1 1 0 001.41-1.41z"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
-        <svg class="icon-mix" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3C8 7 8 17 12 21" stroke-linecap="round"/><path d="M12 3C16 7 16 17 12 21" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
       </button>
       <button class="burger" aria-label="القائمة"><span></span></button>
     </div>
@@ -76,7 +75,7 @@
 <!-- ═══════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="hero-media">
-    <video autoplay muted loop playsinline poster="https://drive.google.com/thumbnail?id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG&sz=w1600">
+    <video autoplay muted loop playsinline poster="https://img.youtube.com/vi/OWYhlBX0NZ4/mqdefault.jpg">
       <source src="hero.mp4" type="video/mp4">
     </video>
   </div>
@@ -101,7 +100,7 @@
 <!-- ═══════════════════════════════════════════ -->
 <!--               STORY / ABOUT                  -->
 <!-- ═══════════════════════════════════════════ -->
-<section class="story-section" id="story">
+<section class="story-section">
   <div class="story-inner">
 
     <!-- صورة -->
@@ -111,32 +110,38 @@
 
     <!-- نص -->
     <div class="story-text wrap-half">
-      <span class="story-label">قصّتنا</span>
+      <span class="story-label" id="story">قصّتنا</span>
       <h2 class="story-title">نلتقط الأفكار<br>من خارج <em>الصندوق</em></h2>
       <p class="story-desc">«قفّاز» شركة سعودية متخصصة في الإنتاج الإعلامي المرئي — نمدّ أيدينا لنلتقط الأفكار ونحيكها بمعايير ترقى لتطلعات النخبة.</p>
       <div class="story-stats">
         <div class="story-stat">
-          <div class="story-stat-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="6" width="15" height="12" rx="2"/><path d="M17 9l5-3v12l-5-3"/></svg>
+          <div class="story-stat-icon">
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
-          <b><span class="count-up" data-to="50">0</span>+</b>
-          <span>مشروع منجز</span>
+          <div class="story-stat-info">
+            <b><span class="count-up" data-to="50">0</span>+</b>
+            <span>مشروع منجز</span>
+          </div>
         </div>
         <div class="story-stat-divider"></div>
         <div class="story-stat">
-          <div class="story-stat-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="story-stat-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <b><span class="count-up" data-to="30">0</span>+</b>
-          <span>عميل راضٍ</span>
+          <div class="story-stat-info">
+            <b><span class="count-up" data-to="30">0</span>+</b>
+            <span>عميل راضٍ</span>
+          </div>
         </div>
         <div class="story-stat-divider"></div>
         <div class="story-stat">
-          <div class="story-stat-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div class="story-stat-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
-          <b><span class="count-up" data-to="5">0</span></b>
-          <span>سنوات خبرة</span>
+          <div class="story-stat-info">
+            <b><span class="count-up" data-to="5">0</span>+</b>
+            <span>سنوات خبرة</span>
+          </div>
         </div>
       </div>
     </div>
@@ -250,8 +255,8 @@
         <p>صور تحكي قصة المنتج وتبهر المتلقّي بعين سينمائية.</p>
       </div>
     </div>
-    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-comm-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
     <div class="svc-works-track photo-track" id="photos-comm-works"></div>
+    <div class="svc-btn-row photo-btn-row"><button class="svc-more-btn photo-more-btn" data-target="photos-comm-works"><span>عرض المزيد</span><svg class="pm-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button></div>
   </div>
   <div class="svc-service-block">
     <div class="svc-svc-header">
@@ -259,8 +264,8 @@
         <p>توثيقٌ احترافي لكل لحظة من حيوية الحضور إلى التفاصيل الدقيقة.</p>
       </div>
     </div>
-    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-event-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
     <div class="svc-works-track photo-track" id="photos-event-works"></div>
+    <div class="svc-btn-row photo-btn-row"><button class="svc-more-btn photo-more-btn" data-target="photos-event-works"><span>عرض المزيد</span><svg class="pm-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button></div>
   </div>
   <div class="svc-service-block">
     <div class="svc-svc-header">
@@ -268,8 +273,8 @@
         <p>ذكرياتكم أمانةٌ بين أيدينا، نوثّق فرحكم بحساسية فنية.</p>
       </div>
     </div>
-    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-occ-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
     <div class="svc-works-track photo-track" id="photos-occ-works"></div>
+    <div class="svc-btn-row photo-btn-row"><button class="svc-more-btn photo-more-btn" data-target="photos-occ-works"><span>عرض المزيد</span><svg class="pm-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button></div>
   </div>
   <div class="svc-service-block">
     <div class="svc-svc-header">
@@ -277,8 +282,8 @@
         <p>منظورٌ لا يُرى إلا من الأعلى، يرسم المكان كما تخيّله المصمم.</p>
       </div>
     </div>
-    <div class="svc-btn-row"><button class="svc-more-btn" data-target="photos-aerial-works"><span>عرض المزيد</span><span class="svc-more-circle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 8l-4 4 4 4"/></svg></span></button></div>
     <div class="svc-works-track photo-track" id="photos-aerial-works"></div>
+    <div class="svc-btn-row photo-btn-row"><button class="svc-more-btn photo-more-btn" data-target="photos-aerial-works"><span>عرض المزيد</span><svg class="pm-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button></div>
   </div>
 </section>
 
@@ -286,7 +291,7 @@
 <!--             SPECIAL PROJECTS                 -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="section special" id="special">
-  <div class="bgimg"><img src="https://drive.google.com/thumbnail?id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D&sz=w1600" alt=""></div>
+  <div class="bgimg"><img src="images/5.png" alt=""></div>
   <div class="wrap reveal">
     <span class="eyebrow" style="justify-content:center">مشاريع استثنائية</span>
     <h2>مشاريع صُنعت <span class="hl">خصيصاً لك</span></h2>
@@ -426,11 +431,44 @@
 <!-- ═══════════════════════════════════════════ -->
 <!--                  LIGHTBOX                    -->
 <!-- ═══════════════════════════════════════════ -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="عارض الوسائط">
+
+  <!-- إغلاق -->
+  <button class="lb-close" id="lbClose" aria-label="إغلاق (Esc)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+
+  <!-- ملاحة -->
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="السابق (→)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="التالي (←)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+
+  <!-- المحتوى -->
   <div class="lb-inner">
-    <button class="lb-close" aria-label="إغلاق"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="lb-body"></div>
   </div>
+
+  <!-- تذييل -->
+  <div class="lb-footer">
+    <span class="lb-title" id="lbTitle"></span>
+    <span class="lb-counter" id="lbCounter"></span>
+  </div>
+
+  <!-- تلميح لوحة المفاتيح -->
+  <div class="lb-hints" id="lbHints">
+    <span><kbd>←</kbd><kbd>→</kbd> التنقل</span>
+    <span><kbd>F</kbd> شاشة كاملة</span>
+    <span><kbd>Esc</kbd> إغلاق</span>
+  </div>
+
+  <!-- شريط الصور المصغرة -->
+  <div class="lb-filmstrip" id="lbFilmstrip">
+    <div class="lb-film-track" id="lbFilmTrack"></div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
