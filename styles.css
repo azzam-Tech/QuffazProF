@@ -1925,7 +1925,7 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
     scroll-snap-align: unset;
   }
   .svc-works-track.photo-track .svc-work-meta{ display: none !important }
-  .svc-works-track.photo-track.collapsed .svc-work-card:nth-child(n+7){ display: none !important }
+  .svc-works-track.photo-track.collapsed .svc-work-card:nth-child(n+10){ display: none !important }
   .svc-works-track.photo-track.expanded .svc-work-card{ display: block !important }
 
   /* ── Group title ── */

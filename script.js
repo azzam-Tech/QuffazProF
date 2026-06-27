@@ -131,26 +131,26 @@ const FILM_SVCS = [
 
 const PHOTO_PROJECTS = {
   "photos-comm-works": [
-    { name:"وزارة الرياضة",  logo:"assets/logos/1.svg",  imgs:[0,1,2,3,4,5,6,7] },
-    { name:"نيوم",            logo:"assets/logos/2.svg",  imgs:[2,3,4,5,6,7,8,9] },
-    { name:"أرامكو",          logo:"assets/logos/3.svg",  imgs:[4,5,6,7,8,9,10,11] },
-    { name:"stc",             logo:"assets/logos/4.svg",  imgs:[6,7,8,9,10,11,12,13] },
+    { name:"وزارة الرياضة",  logo:"assets/logos/1.svg",  imgs:[0,1,2,3,4,5,6,7,8,9,10,11] },
+    { name:"نيوم",            logo:"assets/logos/2.svg",  imgs:[2,3,4,5,6,7,8,9,10,11,12,13] },
+    { name:"أرامكو",          logo:"assets/logos/3.svg",  imgs:[4,5,6,7,8,9,10,11,12,13,14,15] },
+    { name:"stc",             logo:"assets/logos/4.svg",  imgs:[6,7,8,9,10,11,12,13,14,15,16,17] },
   ],
   "photos-event-works": [
-    { name:"قمة المستقبل",   logo:"assets/logos/5.svg",  imgs:[1,2,3,4,5,6,7,8] },
-    { name:"منتدى الإعلام",  logo:"assets/logos/6.svg",  imgs:[0,3,4,5,6,7,8,9] },
-    { name:"موسم الرياض",    logo:"assets/logos/7.svg",  imgs:[2,4,5,6,7,8,9,10] },
-    { name:"ليالي التأسيس",  logo:"assets/logos/8.svg",  imgs:[3,5,6,7,8,9,10,11] },
+    { name:"قمة المستقبل",   logo:"assets/logos/5.svg",  imgs:[1,2,3,4,5,6,7,8,9,10,11,12] },
+    { name:"منتدى الإعلام",  logo:"assets/logos/6.svg",  imgs:[0,3,4,5,6,7,8,9,10,11,12,13] },
+    { name:"موسم الرياض",    logo:"assets/logos/7.svg",  imgs:[2,4,5,6,7,8,9,10,11,12,13,14] },
+    { name:"ليالي التأسيس",  logo:"assets/logos/8.svg",  imgs:[3,5,6,7,8,9,10,11,12,13,14,15] },
   ],
   "photos-occ-works": [
-    { name:"آل الشمري",       logo:"assets/logos/9.svg",  imgs:[0,1,2,3,4,5,6,7] },
-    { name:"آل القحطاني",     logo:"assets/logos/10.svg", imgs:[1,3,4,5,6,7,8,9] },
-    { name:"حفل التخرج",      logo:"assets/logos/1.svg",  imgs:[2,4,5,6,7,8,9,10] },
+    { name:"آل الشمري",       logo:"assets/logos/9.svg",  imgs:[0,1,2,3,4,5,6,7,8,9,10,11] },
+    { name:"آل القحطاني",     logo:"assets/logos/10.svg", imgs:[1,3,4,5,6,7,8,9,10,11,12,13] },
+    { name:"حفل التخرج",      logo:"assets/logos/1.svg",  imgs:[2,4,5,6,7,8,9,10,11,12,13,14] },
   ],
   "photos-aerial-works": [
-    { name:"الرياض",          logo:"assets/logos/2.svg",  imgs:[0,1,2,3,4,5,6,7] },
-    { name:"نيوم",            logo:"assets/logos/3.svg",  imgs:[2,3,4,5,6,7,8,9] },
-    { name:"جدة",             logo:"assets/logos/4.svg",  imgs:[4,5,6,7,8,9,10,11] },
+    { name:"الرياض",          logo:"assets/logos/2.svg",  imgs:[0,1,2,3,4,5,6,7,8,9,10,11] },
+    { name:"نيوم",            logo:"assets/logos/3.svg",  imgs:[2,3,4,5,6,7,8,9,10,11,12,13] },
+    { name:"جدة",             logo:"assets/logos/4.svg",  imgs:[4,5,6,7,8,9,10,11,12,13,14,15] },
   ],
 };
 
