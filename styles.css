@@ -1906,16 +1906,18 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   /* ── Photo sections: show btn row ── */
   .svc-service-block:has(.photo-track) .svc-btn-row{ display: flex !important }
 
-  /* ── Photo grid — 3 rows horizontal scroll ── */
+  /* ── Photo grid — 3 cols vertical ── */
   .svc-works-track.photo-track{
     display: grid !important;
-    grid-template-columns: repeat(3, calc((100vw - 48px) / 3.25)) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     grid-template-rows: unset !important;
     grid-auto-flow: row !important;
     overflow-x: hidden !important;
     overflow-y: visible !important;
     scroll-snap-type: none !important;
-    gap: clamp(3px, .5vw, 5px) !important;
+    gap: 3px !important;
+    width: 100% !important;
+    padding: 0 !important;
   }
   .svc-works-track.photo-track .svc-work-card{
     width: 100% !important;
@@ -2017,6 +2019,68 @@ h1,h2,h3,h4,h5,.display{ font-family: var(--font-ar); line-height: 1.25; font-we
   /* ── Lightbox ── */
   .lightbox{ padding: 20px }
   .lb-inner.video .lb-body{ width: min(95vw, 900px) }
+}
+
+@media (max-width: 600px){
+  /* ── Lightbox mobile: upper half media, lower half controls ── */
+  .lightbox{ padding: 0 }
+
+  /* الصندوق الداخلي — يملأ النصف العلوي */
+  .lightbox .lb-inner{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    width: 100vw !important;
+    height: 50vh !important;
+    max-width: 100vw !important;
+    max-height: 50vh !important;
+    border-radius: 0;
+    background: #000;
+  }
+
+  /* الصورة */
+  .lightbox .lb-inner:not(.yt-mode) .lb-body img{
+    width: 100%; height: 100%;
+    max-width: 100vw; max-height: 50vh;
+    object-fit: contain;
+  }
+
+  /* الفيديو — يملأ العرض بنسبة 16:9 */
+  .lightbox .lb-inner.yt-mode .lb-body{
+    width: 100vw !important;
+    aspect-ratio: unset !important;
+    height: 50vh !important;
+  }
+
+  /* زر الإغلاق — أعلى النصف السفلي */
+  .lightbox .lb-close{
+    position: fixed;
+    top: calc(50vh + 16px);
+    inset-inline-end: 24px;
+    inset-inline-start: auto;
+  }
+
+  /* أزرار التنقل — منتصف النصف السفلي */
+  .lightbox .lb-nav{
+    position: fixed;
+    top: calc(50vh + 25vh);
+    transform: translateY(-50%);
+  }
+  .lightbox .lb-prev{ inset-inline-start: 24px }
+  .lightbox .lb-next{ inset-inline-end: 24px }
+
+  /* العداد والعنوان */
+  .lightbox .lb-footer{
+    position: fixed;
+    bottom: auto;
+    top: calc(50vh + 16px);
+    left: 50%; transform: translateX(-50%);
+  }
+
+  /* الـ filmstrip في أسفل الشاشة */
+  .lightbox .lb-filmstrip{
+    position: fixed;
+    bottom: 12px; left: 0; right: 0;
+  }
 }
 
 @media (max-width: 400px){
